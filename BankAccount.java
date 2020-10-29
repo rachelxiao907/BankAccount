@@ -3,11 +3,16 @@ public class BankAccount {
   private int accountID;
   private String password;
 
+  // nonstatic = part of obkect, so this. refers to instance variables
   //constructor
   public BankAccount(int a, String p) {
     accountID = a;
     password = p;
     balance = 0;
+  }
+
+  public String toString() {
+    return "#" + accountID + "\t$" + balance;
   }
 
   public double getBalance() {
@@ -18,8 +23,8 @@ public class BankAccount {
     return accountID;
   }
 
-  public void setPassword(String pw) {
-    password = pw;
+  public void setPassword(String newPass) {
+    password = newPass;
   }
 
   public boolean deposit(double amount) {
@@ -38,7 +43,8 @@ public class BankAccount {
     return false;
   }
 
-  public String toString() {
-    return accountID + "\t" + balance;
+  private boolean authenticate(String password) {
+    return password.equals(this.password);
   }
+
 }
