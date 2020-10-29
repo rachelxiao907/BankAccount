@@ -7,7 +7,7 @@ public class BankAccount {
   public BankAccount(int a, String p) {
     accountID = a;
     password = p;
-    balance = 0.0;
+    balance = 0;
   }
 
   public double getBalance() {
