@@ -15,5 +15,9 @@ public class BankAccountTester {
     System.out.println(b1.getBalance());
 
     System.out.println(b1.toString());
+    //nonstatic = part of object, so this. refers to instance variables
+    //obj.method could be static or non static
+    BankAccount b2 = new BankAccount(5213452, "no");
+    System.out.println(b1.transferTo(b2, 1000, "hello"));
   }
 }
