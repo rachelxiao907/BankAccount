@@ -3,7 +3,6 @@ public class BankAccount {
   private int accountID;
   private String password;
 
-  // nonstatic = part of obkect, so this. refers to instance variables
   //constructor
   public BankAccount(int a, String p) {
     accountID = a;
@@ -45,6 +44,15 @@ public class BankAccount {
 
   private boolean authenticate(String password) {
     return password.equals(this.password);
+  }
+
+  public boolean transferTo(BankAccount other, double amount, String password) {
+    if (authenticate(password) && withdraw(amount)) {
+      if (other.deposit(amount)) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }
